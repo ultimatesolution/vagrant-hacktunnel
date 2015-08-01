@@ -1,0 +1,3 @@
+---
+redis_path: /home/vagrant/opt/redis-stable
+redis_archive_file: redis-stable.tar.gz

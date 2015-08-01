@@ -40,6 +40,8 @@
       GOROOT: "{{ go_root }}"
       PATH: "{{ go_root }}/bin:{{ go_path }}/bin:/usr/bin:/bin"
   with_items:
+      - github.com/constabulary/gb/...
+      - github.com/nats-io/gnatsd
       - github.com/nsf/gocode
       - bitbucket.org/gotamer/gowatch
 - name: Check out vim-go

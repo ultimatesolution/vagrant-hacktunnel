@@ -1,0 +1,14 @@
+---
+#- name: Install NodeJS, see http://askubuntu.com/questions/519712/trying-to-install-nodejs-but-failing
+# sudo: false
+
+- name: Install NodeJS
+  command: "{{ item }} chdir=/tmp"
+  with_items:
+    - sh -c 'curl https://raw.githubusercontent.com/creationix/nvm/v0.15.0/install.sh | bash'
+    - sh -c 'source /home/vagrant/.nvm/nvm.sh && nvm install 0.12.2 && nvm use 0.12.2'
+- name: Add NodeJS initialization to bashrc_mods
+  lineinfile: dest=/home/vagrant/.bashrc_mods line="{{ item }}" insertafter=EOF
+  with_items:
+    - 'source /home/vagrant/.nvm/nvm.sh && nvm use 0.12.2'
+

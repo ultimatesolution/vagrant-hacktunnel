@@ -20,3 +20,5 @@ export GOROOT=/home/vagrant/opt/go
 export GOPATH=/home/vagrant/code/go
 export PATH=/home/vagrant/opt/go/bin:$PATH
 export PATH=/home/vagrant/code/go/bin:$PATH
+nohup /home/vagrant/opt/redis-stable/src/redis-server &
+source /home/vagrant/.nvm/nvm.sh && nvm use 0.12.2

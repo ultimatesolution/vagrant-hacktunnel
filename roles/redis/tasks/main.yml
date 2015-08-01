@@ -1,0 +1,27 @@
+---
+#- name: Install Redis, see https://www.digitalocean.com/community/tutorials/how-to-install-and-use-redis
+# sudo: false
+
+- name: Download Redis source
+  get_url:
+      url=http://download.redis.io/releases/{{ redis_archive_file }}
+      dest={{ document_root }}/{{ redis_archive_file }}
+- name: Create ~/opt folder
+  file:
+      path=/home/vagrant/opt
+      state=directory
+- name: Unpack Redis source code
+  unarchive:
+      copy=no
+      src={{ document_root }}/{{ redis_archive_file }}
+      dest=/home/vagrant/opt
+      creates=/home/vagrant/opt/redis
+- name: Compile Redis
+  command: "{{ item }} chdir={{ redis_path }}"
+  with_items:
+    - make
+- name: Add start to bashrc_mods
+  lineinfile: dest=/home/vagrant/.bashrc_mods line="{{ item }}" insertafter=EOF
+  with_items:
+    - 'nohup {{ redis_path }}/src/redis-server &'
+

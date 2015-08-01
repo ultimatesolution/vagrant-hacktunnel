@@ -1,4 +1,25 @@
-# DevBox-Golong
+# HackTunnel devbox, based on devbox-golang
+
+You should have VirtualBox and Vagrant installed.
+
+Quick start:
+
+```bash
+vagrant up
+vagrant ssh
+/vagrant/setup-dev-env.sh
+```
+
+Then you can develop projects in forlders
+
+```code
+/vagrant/code/hacktunnel
+/vagrant/code/hacktunnel-mockup
+```
+/vagrant/code/hacktunnel is bound to git repo https://github.com/devhq-io/hacktunnel.git, branch "dev"
+/vagrant/code/hacktunnel-mockup is bound to git repo https://github.com/devhq-io/hacktunnel-mockup.git, branch "master"
+
+## DevBox-Golang
 *Vagrant box backed by Docker or Virtualbox, with Ansible provisioning*
 
 A Vagrant box (Virtualbox or Docker as providers) with Ansible provisioning

@@ -28,6 +28,8 @@
          - man-db
          - build-essential
          - tcl8.5
+	 - imagemagick
+	 - graphicsmagick
   roles:
       - { role: dotfiles, sudo: false }
       - { role: golang, sudo: false }

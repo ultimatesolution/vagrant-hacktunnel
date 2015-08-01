@@ -10,7 +10,7 @@ vagrant ssh
 /vagrant/setup-dev-env.sh
 ```
 
-Then you can develop projects in forlders
+Then you can develop projects in folders
 
 ```code
 /vagrant/code/hacktunnel

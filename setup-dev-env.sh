@@ -5,6 +5,7 @@ cd /vagrant/code
 git clone https://github.com/devhq-io/hacktunnel-mockup.git
 git clone -b dev https://github.com/devhq-io/hacktunnel.git
 cd hacktunnel
+test -e hacktunnel.conf || cp hacktunnel.conf.sample hacktunnel.conf
 test -e nats-server.conf || cp nats-server.conf.sample nats-server.conf
 nohup gnatsd -c nats-server.conf &
 nohup /home/vagrant/opt/redis-stable/src/redis-server &
